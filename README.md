@@ -10,17 +10,31 @@ The analysis covers **3,900 customer purchases across 18 data columns**, includi
 
 ---
 
+## 🎯 Problem Statement
+
+A leading retail company wants to better understand its customers’ shopping behavior in order to improve **sales, customer satisfaction, and long-term loyalty**.
+
+The management team has noticed changes in purchasing patterns across **demographics, product categories, and sales channels (online vs. offline)**. They are particularly interested in uncovering which factors, such as **discounts, reviews, seasons, or payment preferences**, drive consumer decisions and repeat purchases.
+
+### Business Question
+
+> **How can the company leverage consumer shopping data to identify trends, improve customer engagement, and optimize marketing and product strategies?**
+
+This project analyzes customer shopping behavior data to identify actionable patterns and provide data-driven insights that can support **customer engagement, marketing, product positioning, and retention strategies**.
+
+---
+
 ## 🎯 Project Objectives
 
 The main objectives of this project are to:
 
-* Understand customer purchasing behavior
-* Identify high-value customer segments
-* Analyze revenue across customer groups
-* Evaluate the impact of discounts and subscriptions
-* Identify top-performing and highly rated products
-* Analyze shipping and purchasing patterns
-* Generate actionable business insights through dashboards and reports
+- Understand customer purchasing behavior
+- Identify high-value customer segments
+- Analyze revenue across customer groups
+- Evaluate the impact of discounts and subscriptions
+- Identify top-performing and highly rated products
+- Analyze shipping and purchasing patterns
+- Generate actionable business insights through dashboards and reports
 
 ---
 
@@ -30,18 +44,18 @@ The dataset contains **3,900 customer purchase records** and **18 columns** cove
 
 Key attributes include:
 
-* Customer ID
-* Age
-* Gender
-* Category
-* Item Purchased
-* Purchase Amount
-* Review Rating
-* Shipping Type
-* Discount Applied
-* Subscription Status
-* Previous Purchases
-* Frequency of Purchases
+- Customer ID
+- Age
+- Gender
+- Category
+- Item Purchased
+- Purchase Amount
+- Review Rating
+- Shipping Type
+- Discount Applied
+- Subscription Status
+- Previous Purchases
+- Frequency of Purchases
 
 The dataset initially contained missing values in the **Review Rating** column, which were handled during data preparation.
 
@@ -49,15 +63,15 @@ The dataset initially contained missing values in the **Review Rating** column, 
 
 ## 🛠️ Tools & Technologies
 
-| Tool                 | Purpose                                           |
-| -------------------- | ------------------------------------------------- |
-| **Python**           | Data loading, cleaning, EDA & feature engineering |
-| **Pandas**           | Data manipulation and preprocessing               |
-| **PostgreSQL**       | SQL-based business analysis                       |
-| **Power BI**         | Interactive dashboard development                 |
-| **Gamma**            | Business presentation                             |
-| **Jupyter Notebook** | Python analysis environment                       |
-| **GitHub**           | Project documentation and version control         |
+| Tool | Purpose |
+|---|---|
+| **Python** | Data loading, cleaning, EDA & feature engineering |
+| **Pandas** | Data manipulation and preprocessing |
+| **PostgreSQL** | SQL-based business analysis |
+| **Power BI** | Interactive dashboard development |
+| **Gamma** | Business presentation |
+| **Jupyter Notebook** | Python analysis environment |
+| **GitHub** | Project documentation and version control |
 
 ---
 
@@ -73,40 +87,31 @@ import pandas as pd
 df = pd.read_csv("customer_shopping_behavior.csv")
 ```
 
----
-
 ## 2. Exploratory Data Analysis
 
 Initial EDA was performed to understand the dataset and identify potential data-quality issues.
 
 The analysis included:
 
-* Dataset structure and information
-* Descriptive statistics
-* Missing-value analysis
-* Unique-value analysis
-* Distribution and category exploration
-
----
+- Dataset structure and information
+- Descriptive statistics
+- Missing-value analysis
+- Unique-value analysis
+- Distribution and category exploration
 
 ## 3. Data Cleaning & Feature Engineering
 
 The dataset was prepared for further analysis by:
 
-* Handling missing **Review Rating** values using category-level median imputation
-* Standardizing column names
-* Renaming columns for easier analysis
-* Creating **Age Groups**
-* Converting purchase-frequency categories into numerical day values
-* Identifying redundant columns
-* Removing the `promo_code_used` column after comparing it with `discount_applied`
+- Handling missing **Review Rating** values using median values
+- Standardizing column names
+- Renaming columns for easier analysis
+- Creating **Age Groups**
+- Converting purchase-frequency categories into numerical day values
+- Identifying redundant columns
+- Removing unnecessary columns after analysis
 
-Feature engineering included the creation of:
-
-* `age_group`
-* `purchase_frequnency_days`
-
----
+The project created additional features such as **age groups** and **purchase frequency** during the data preparation process.
 
 ## 4. PostgreSQL & SQL Analysis
 
@@ -114,18 +119,18 @@ The cleaned dataset was loaded into **PostgreSQL** for structured business analy
 
 The project includes **10 SQL business questions**, covering areas such as:
 
-* Revenue by gender
-* High-value customers using discounts
-* Top-rated products
-* Shipping-type spending
-* Subscriber vs. non-subscriber spending
-* Discount rates by product
-* Customer segmentation
-* Top products within each category
-* Repeat buyers and subscription behavior
-* Revenue contribution by age group
+- Revenue by gender
+- High-value customers using discounts
+- Top-rated products
+- Shipping-type spending
+- Subscriber vs. non-subscriber spending
+- Discount rates by product
+- Customer segmentation
+- Top products within each category
+- Repeat buyers and subscription behavior
+- Revenue contribution by age group
 
-For example, customer segmentation was created using previous purchase behavior:
+For example, customer segmentation was created based on previous purchases:
 
 ```sql
 CASE 
@@ -135,7 +140,7 @@ CASE
 END
 ```
 
-Window functions such as `ROW_NUMBER()` were also used to identify the top products within each category.
+The SQL analysis also uses **CTEs, aggregate functions, CASE statements, and window functions** to answer business questions.
 
 ---
 
@@ -145,19 +150,20 @@ An interactive **Power BI dashboard** was developed to visualize the results of 
 
 The dashboard focuses on:
 
-* Customer purchasing behavior
-* Revenue analysis
-* Product performance
-* Customer segmentation
-* Subscription behavior
-* Shipping preferences
-* Discounts and purchasing patterns
+- Customer purchasing behavior
+- Revenue analysis
+- Product performance
+- Customer segmentation
+- Subscription behavior
+- Shipping preferences
+- Discounts and purchasing patterns
 
-**Power BI Dashboard:**
+**Power BI Dashboard:**  
 `[Add your Power BI report link here]`
 
-**Dashboard Preview:**
-`[Add dashboard screenshot here]`
+**Dashboard Preview:**  
+
+![Power BI Dashboard](dashboard_screenshot.png)
 
 ---
 
@@ -179,7 +185,7 @@ Products such as **Blouse, Dress, and Shirt** appeared among the highly rated pr
 
 ### Shipping Behavior
 
-Customers using **Express Shipping** had an average purchase amount of approximately **$65**, compared with approximately **$58** for Standard Shipping.
+Customers using **Express Shipping** had an average purchase amount of approximately **$65**, compared with approximately **$58** for Standard Shipping. The analysis reported that Express Shipping customers spent around **12% more per transaction**.
 
 ### Subscription Analysis
 
@@ -189,11 +195,11 @@ The analysis identified differences in spending, revenue contribution, and repea
 
 Customers were segmented into:
 
-* **New Customers** – 50%
-* **Returning Customers** – 35%
-* **Loyal Customers** – 15%
+- **New Customers** – 50%
+- **Returning Customers** – 35%
+- **Loyal Customers** – 15%
 
-This segmentation can help businesses design targeted retention and conversion strategies.
+The analysis highlights the opportunity to move customers from **New → Returning → Loyal** through targeted engagement and retention strategies.
 
 ---
 
@@ -203,12 +209,12 @@ A structured business report was created to summarize the analytical findings an
 
 The report focuses on:
 
-* Customer behavior
-* Revenue drivers
-* Product performance
-* Subscription impact
-* Customer segmentation
-* Strategic opportunities
+- Customer behavior
+- Revenue drivers
+- Product performance
+- Subscription impact
+- Customer segmentation
+- Strategic opportunities
 
 ---
 
@@ -234,11 +240,11 @@ The presentation covers:
 
 Based on the analysis, the project highlights opportunities to:
 
-* **Increase subscription adoption** through exclusive customer benefits
-* **Strengthen loyalty programs** to encourage repeat purchases
-* **Use targeted marketing** for high-value customer segments
-* **Promote highly rated products** in marketing campaigns
-* **Focus on converting New Customers into Returning Customers and Returning Customers into Loyal Customers**
+- **Increase subscription adoption** through exclusive customer benefits
+- **Strengthen loyalty programs** to encourage repeat purchases
+- **Use targeted marketing** for high-value customer segments
+- **Promote highly rated products** in marketing campaigns
+- **Focus on converting New Customers into Returning Customers and Returning Customers into Loyal Customers**
 
 ---
 
@@ -295,11 +301,11 @@ python/customer_shopping_behavior_analysis.ipynb
 
 Run the notebook to perform:
 
-* Data loading
-* EDA
-* Data cleaning
-* Feature engineering
-* PostgreSQL data integration
+- Data loading
+- EDA
+- Data cleaning
+- Feature engineering
+- PostgreSQL data integration
 
 ## 4. Set Up PostgreSQL
 
@@ -333,8 +339,6 @@ Open the files in the `report` and `presentation` folders to review the final bu
 
 ## 👤 Author
 
-**[Your Name]**
+**[Sayan Chakraborty]**
 
-[GitHub](your-github-profile-link)
-[LinkedIn](your-linkedin-profile-link)
-
+[LinkedIn](https://www.linkedin.com/in/sayan-chakraborty-817a8a288/?isSelfProfile=true)

@@ -158,13 +158,6 @@ The dashboard focuses on:
 - Shipping preferences
 - Discounts and purchasing patterns
 
-**Power BI Dashboard:**  
-`[Add your Power BI report link here]`
-
-**Dashboard Preview:**  
-
-![Power BI Dashboard](dashboard_screenshot.png)
-
 ---
 
 # 📈 Key Results & Insights
